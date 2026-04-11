@@ -1,14 +1,21 @@
 """
-tray.py - Windows system tray icon and menu for PhoneBusted
+tray.py - Cross-platform system tray icon and menu for PhoneBusted
 
-Runs in a BACKGROUND thread (not main thread).
-The main thread is owned by tkinter (main window).
+Windows / Linux:
+  run()          → blocking icon.run(); call from a background thread.
+  Main thread stays with tkinter.
+
+macOS:
+  run_detached() → non-blocking icon.run_detached(); call from main thread.
+  pystray spins up its own AppKit thread internally and returns immediately.
+  Main thread stays with tkinter.
 
 Green  = monitoring active
 Red    = phone just detected  (resets after 3 s)
 Orange = alerts muted
 """
 
+import sys
 import threading
 import time
 import tkinter as tk
@@ -235,7 +242,7 @@ class TrayManager:
             if self._icon and self._running:
                 self._refresh_menu()
 
-    # ── Run (blocking — call from a BACKGROUND thread) ────────────────────────
+    # ── Run (blocking — call from a BACKGROUND thread on Windows/Linux) ─────────
 
     def run(self) -> None:
         self._running = True
@@ -255,3 +262,32 @@ class TrayManager:
         log("[Tray] Pystray icon starting (background thread)...")
         self._icon.run()
         log("[Tray] Pystray icon stopped.")
+
+    # ── Run detached (non-blocking — macOS only) ──────────────────────────────
+
+    def run_detached(self) -> None:
+        """
+        macOS: start pystray non-blocking via pystray's built-in run_detached().
+
+        pystray.Icon.run_detached() spawns its own AppKit thread internally and
+        returns immediately, so the caller (main thread) stays free for tkinter.
+        icon.run() must NOT be called from a foreign thread on macOS — this is
+        the safe alternative.
+        """
+        self._running = True
+
+        self._icon = pystray.Icon(
+            name  = "PhoneBusted",
+            icon  = _make_icon("green"),
+            title = "PhoneBusted - Monitoring",
+            menu  = self._build_menu(),
+        )
+
+        self._update_thread = threading.Thread(
+            target=self._update_loop, daemon=True, name="TrayUpdater",
+        )
+        self._update_thread.start()
+
+        log("[Tray] Pystray icon starting detached (macOS AppKit thread)...")
+        self._icon.run_detached()
+        log("[Tray] run_detached() returned — icon live in AppKit thread.")

@@ -1,16 +1,24 @@
 """
 main.py - PhoneBusted entry point
 
-Thread model:
+Thread model (Windows/Linux):
   Main thread  →  tkinter  (main window with controls + log)
-  Thread       →  pystray  (system tray icon)
+  Thread       →  pystray  (icon.run() — blocking, background thread)
   Thread       →  PhoneDetector  (YOLO + webcam)
-  Thread       →  AudioManager workers (winsound / TTS)
+  Thread       →  AudioManager workers (winsound / afplay)
+
+Thread model (macOS):
+  Main thread  →  tkinter  (main window with controls + log)
+  AppKit thread→  pystray  (icon.run_detached() — AppKit needs its own thread)
+  Thread       →  PhoneDetector  (YOLO + webcam)
+  Thread       →  AudioManager workers (afplay)
 
 Single-instance: socket IPC on localhost:47832
   - First instance: binds + listens; receives "SHOW" → restores window
   - Second instance: connects + sends "SHOW" + exits silently
 """
+
+print("PhoneBusted starting...", flush=True)
 
 import sys
 import os
@@ -314,20 +322,33 @@ def main() -> None:
     threading.Thread(target=_webcam_watchdog, daemon=True,
                      name="WebcamWatchdog").start()
 
-    # ── 11. Start pystray in background thread ────────────────────────────────
+    # ── 11. Start pystray ────────────────────────────────────────────────────
     if tray:
-        def _run_tray():
+        if sys.platform == "darwin":
+            # macOS: AppKit must NOT be called from a foreign background thread.
+            # run_detached() lets pystray spin up its own AppKit thread internally
+            # and returns immediately — the main thread stays free for tkinter.
             try:
-                log("Pystray starting in background thread...")
-                tray.run()
+                log("Pystray starting detached (macOS)...")
+                tray.run_detached()
+                log("Pystray detached — AppKit thread running, main thread → tkinter.")
             except Exception as exc:
-                log(f"ERROR in pystray: {exc}")
+                log(f"ERROR starting pystray (macOS): {exc}")
                 log(traceback.format_exc())
+        else:
+            # Windows / Linux: icon.run() is blocking; keep it off the main thread.
+            def _run_tray():
+                try:
+                    log("Pystray starting in background thread...")
+                    tray.run()
+                except Exception as exc:
+                    log(f"ERROR in pystray: {exc}")
+                    log(traceback.format_exc())
 
-        tray_thread = threading.Thread(target=_run_tray, daemon=True,
-                                       name="PystrayThread")
-        tray_thread.start()
-        log("Pystray thread launched.")
+            tray_thread = threading.Thread(target=_run_tray, daemon=True,
+                                           name="PystrayThread")
+            tray_thread.start()
+            log("Pystray thread launched.")
     else:
         log("WARNING: Tray not available.")
 
