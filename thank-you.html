@@ -183,18 +183,30 @@
       font-weight: 700;
     }
 
-    /* Download button */
+    /* Download buttons */
+    .download-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .download-row .btn-download,
+    .download-row .btn-download-mac {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
     .btn-download {
       display: inline-flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 4px;
       width: 100%;
-      padding: 17px 28px;
+      padding: 17px 20px;
       background: var(--red);
       color: var(--white);
       font-family: 'Inter', sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
       border: none;
       border-radius: 10px;
@@ -210,7 +222,42 @@
     }
     .btn-download:active { transform: translateY(0); }
 
-    .btn-download svg {
+    .btn-download-mac {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      width: 100%;
+      padding: 17px 20px;
+      background: #1a1a1a;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      margin-bottom: 14px;
+    }
+    .btn-download-mac:hover {
+      background: #333;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+    }
+    .btn-download-mac:active { transform: translateY(0); }
+
+    .btn-file-note {
+      font-size: 11px;
+      font-weight: 500;
+      opacity: 0.65;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-download svg,
+    .btn-download-mac svg {
       width: 20px;
       height: 20px;
       stroke: white;
@@ -219,6 +266,72 @@
       stroke-linecap: round;
       stroke-linejoin: round;
       flex-shrink: 0;
+    }
+
+    /* Mac warning box */
+    .mac-box {
+      background: #F0F7FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .mac-box-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #1E3A5F;
+      margin-bottom: 12px;
+    }
+
+    .mac-box-body {
+      font-size: 13.5px;
+      color: #1E3A5F;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .mac-box-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .mac-box-step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #1E3A5F;
+      font-weight: 600;
+    }
+
+    .mac-num {
+      width: 22px;
+      height: 22px;
+      background: #3B82F6;
+      color: white;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .mac-box-footnote {
+      font-size: 11.5px;
+      color: #3B82F6;
+      line-height: 1.65;
+      padding-top: 14px;
+      border-top: 1px solid #BFDBFE;
+    }
+
+    @media (max-width: 480px) {
+      .download-row { flex-direction: column; }
     }
 
     /* Micro notes */
@@ -422,16 +535,29 @@
       Your download link is below.
     </p>
 
-    <!-- Download button -->
-    <a href="https://github.com/manigrowth-ai/phonebuster/releases/download/v1.0.0/PhoneBusted.exe"
-       class="btn-download">
-      <svg viewBox="0 0 24 24">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-        <polyline points="7 10 12 15 17 10"/>
-        <line x1="12" y1="15" x2="12" y2="3"/>
-      </svg>
-      Download PhoneBusted for Windows
-    </a>
+    <!-- Download buttons -->
+    <div class="download-row">
+      <a href="https://github.com/manigrowth-ai/phonebuster/releases/download/v1.0.0/PhoneBusted.exe"
+         class="btn-download">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download for Windows
+        <span class="btn-file-note">PhoneBusted.exe · 296 MB</span>
+      </a>
+      <a href="https://github.com/manigrowth-ai/phonebuster/releases/download/v1.0.0/PhoneBusted-Mac.zip"
+         class="btn-download-mac">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download for Mac
+        <span class="btn-file-note">PhoneBusted-Mac.zip · 322 MB</span>
+      </a>
+    </div>
 
     <div class="micro-notes">
       ⚡ Download available instantly after payment.<br />
@@ -477,6 +603,30 @@
       </p>
     </div>
 
+    <!-- Mac security warning -->
+    <div class="mac-box">
+      <div class="mac-box-title">🍎 Mac users — one-time setup step</div>
+      <p class="mac-box-body">
+        macOS will say PhoneBusted is from an unidentified developer.
+        This is because we haven't paid Apple $99/year for a certificate yet.
+        The app is completely safe — no data leaves your laptop, ever.<br /><br />
+        To open it:
+      </p>
+      <div class="mac-box-steps">
+        <div class="mac-box-step">
+          <span class="mac-num">1</span>
+          Right-click PhoneBusted → <strong style="margin-left:4px;">Open</strong>
+        </div>
+        <div class="mac-box-step">
+          <span class="mac-num">2</span>
+          Click <strong style="margin-left:4px;">"Open"</strong> in the popup
+        </div>
+      </div>
+      <p class="mac-box-footnote">
+        You'll only need to do this once. After that it opens normally.
+      </p>
+    </div>
+
     <!-- Steps -->
     <div class="steps">
       <div class="step-row">
@@ -485,7 +635,7 @@
       </div>
       <div class="step-row">
         <div class="step-num">2</div>
-        <div class="step-text"><strong>Download and run</strong> the app using the button above. Click through the Windows warning — it's safe.</div>
+        <div class="step-text"><strong>Download for your OS</strong> using the buttons above. Click through any security warning — everything runs locally on your laptop. Nothing is sent anywhere.</div>
       </div>
       <div class="step-row">
         <div class="step-num">3</div>
