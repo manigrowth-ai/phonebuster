@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're in — PhoneBusted</title>
+  <meta name="description" content="Thanks for buying PhoneBusted. Check your email for your activation key and download the app below." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:    #FFFFFF;
+      --black:    #0A0A0A;
+      --red:      #E63946;
+      --red-dark: #C1121F;
+      --green:    #2ECC71;
+      --green-dk: #27AE60;
+      --gray-bg:  #F5F5F5;
+      --gray-mid: #888888;
+      --gray-lt:  #CCCCCC;
+      --border:   #E8E8E8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Nav ─────────────────────────────────────────────────────── */
+    #navbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: box-shadow 0.2s ease;
+    }
+    #navbar.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-text {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--black);
+      letter-spacing: -0.5px;
+    }
+
+    /* ── Main content ────────────────────────────────────────────── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px 100px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 64px 56px;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.07);
+    }
+
+    /* Big green checkmark */
+    .check-wrap {
+      width: 88px;
+      height: 88px;
+      background: #EAFAF1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      animation: pop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+    @keyframes pop {
+      0%   { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .check-wrap svg {
+      width: 44px;
+      height: 44px;
+      stroke: var(--green);
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Headline */
+    .headline {
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .subtext {
+      font-size: 16px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    /* Steps */
+    .steps {
+      background: var(--gray-bg);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .step-num {
+      width: 26px;
+      height: 26px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-text {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+    .step-text strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    /* Download button */
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 17px 28px;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      margin-bottom: 14px;
+    }
+    .btn-download:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(230, 57, 70, 0.35);
+    }
+    .btn-download:active { transform: translateY(0); }
+
+    .btn-download svg {
+      width: 20px;
+      height: 20px;
+      stroke: white;
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* Micro notes */
+    .micro-notes {
+      font-size: 12.5px;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    /* SmartScreen warning box */
+    .smartscreen-box {
+      background: #FFFBEB;
+      border: 1px solid #F6D860;
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .smartscreen-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #92400E;
+      margin-bottom: 12px;
+    }
+
+    .smartscreen-body {
+      font-size: 13.5px;
+      color: #78350F;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .smartscreen-img {
+      display: block;
+      max-width: 360px;
+      width: 100%;
+      margin: 0 auto 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+
+    .smartscreen-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .smartscreen-step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #78350F;
+      font-weight: 600;
+    }
+
+    .ss-num {
+      width: 22px;
+      height: 22px;
+      background: #F59E0B;
+      color: white;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .smartscreen-after {
+      font-size: 13px;
+      color: #92400E;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .smartscreen-footnote {
+      font-size: 11.5px;
+      color: #B45309;
+      line-height: 1.65;
+      padding-top: 14px;
+      border-top: 1px solid #FDE68A;
+    }
+
+    /* Spam note */
+    .spam-note {
+      font-size: 13px;
+      color: var(--gray-mid);
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      line-height: 1.6;
+    }
+    .spam-note a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .spam-note a:hover { text-decoration: underline; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid #1a1a1a;
+      padding: 36px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .footer-logo-text {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: #555;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .footer-links a:hover { color: #888; }
+
+    .footer-tagline { font-size: 13px; color: #444; }
+
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: #333;
+      margin-top: 12px;
+      padding-top: 20px;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .card { padding: 40px 24px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ─────────────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span style="font-size: 22px; line-height:1;">🚫</span>
+      <span class="nav-logo-text">PhoneBusted</span>
+    </a>
+    <a href="https://buy.polar.sh/polar_cl_cxFggqcrWD0Bc1gxnVMXRu0bD5RVGNxjH7jjV0gFWS5"
+       style="font-family:'Inter',sans-serif; font-size:14px; font-weight:700;
+              background:var(--red); color:white; padding:10px 22px;
+              border-radius:8px; text-decoration:none;
+              transition: background 0.15s ease;"
+       onmouseover="this.style.background='#C1121F'"
+       onmouseout="this.style.background='#E63946'">
+      Buy PhoneBusted — $9
+    </a>
+  </div>
+</nav>
+
+<!-- ── Main ────────────────────────────────────────────────────── -->
+<main>
+  <div class="card">
+
+    <!-- Green checkmark -->
+    <div class="check-wrap">
+      <svg viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+
+    <h1 class="headline">You're in.<br />Welcome to PhoneBusted.</h1>
+
+    <p class="subtext">
+      Check your email for your unique activation key.<br />
+      Your download link is below.
+    </p>
+
+    <!-- Download button -->
+    <a href="https://github.com/manigrowth-ai/phonebuster/releases/download/v1.0.0/PhoneBusted.exe"
+       class="btn-download">
+      <svg viewBox="0 0 24 24">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Download PhoneBusted for Windows
+    </a>
+
+    <div class="micro-notes">
+      ⚡ Download available instantly after payment.<br />
+      🔑 Activation key sent to your email.
+    </div>
+
+    <!-- SmartScreen warning -->
+    <div class="smartscreen-box">
+      <div class="smartscreen-title">⚠️ Quick heads up before you install</div>
+      <p class="smartscreen-body">
+        Windows will show a security warning when you first open PhoneBusted.
+        This is completely normal for brand new apps that haven't been downloaded
+        by millions of people yet.<br /><br />
+        PhoneBusted is 100% safe. No data collected. No internet required to run.
+        Everything happens locally on your laptop.<br /><br />
+        Just follow these two steps:
+      </p>
+
+      <img
+        src="assets/Click_more_infor_and_Run_anyway.png.png"
+        alt='Windows SmartScreen: click "More info" then "Run anyway"'
+        class="smartscreen-img"
+      />
+
+      <div class="smartscreen-steps">
+        <div class="smartscreen-step">
+          <span class="ss-num">1</span>
+          Click <strong style="margin-left:4px;">"More info"</strong>
+        </div>
+        <div class="smartscreen-step">
+          <span class="ss-num">2</span>
+          Click <strong style="margin-left:4px;">"Run anyway"</strong>
+        </div>
+      </div>
+
+      <p class="smartscreen-after">
+        That's it. PhoneBusted will open normally every time after this.
+      </p>
+
+      <p class="smartscreen-footnote">
+        This warning disappears permanently once more users install PhoneBusted.
+        We're working on getting it fully verified. Thanks for being an early supporter 🙏
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="steps">
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Check your email</strong> — your activation key is on its way. Check spam if you don't see it in 2 minutes.</div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Download and run</strong> the app using the button above. Click through the Windows warning — it's safe.</div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Enter your key</strong> when the app asks. You're live. Put your phone down.</div>
+      </div>
+    </div>
+
+    <!-- Spam note -->
+    <p class="spam-note">
+      Didn't get the email? Check spam or email
+      <a href="mailto:hello@phonebusted.com">hello@phonebusted.com</a>
+    </p>
+
+  </div>
+</main>
+
+<!-- ── Footer ──────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">
+        <span style="font-size: 18px;">🚫</span>
+        <span class="footer-logo-text">PhoneBusted</span>
+      </a>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <span style="color:#2a2a2a;">•</span>
+        <a href="#">Terms</a>
+        <span style="color:#2a2a2a;">•</span>
+        <a href="mailto:hello@phonebusted.com">Contact</a>
+      </div>
+      <span class="footer-tagline">Made with 🚫 to kill phone addiction</span>
+    </div>
+    <div class="footer-copy">© 2026 PhoneBusted. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav shadow
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
