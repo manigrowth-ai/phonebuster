@@ -564,137 +564,7 @@
       🔑 Activation key sent to your email.
     </div>
 
-    <!-- SmartScreen warning -->
-    <div class="smartscreen-box">
-      <div class="smartscreen-title">⚠️ Quick heads up before you install</div>
-      <p class="smartscreen-body">
-        Windows will show a security warning when you first open PhoneBusted.
-        This is completely normal for brand new apps that haven't been downloaded
-        by millions of people yet.<br /><br />
-        PhoneBusted is 100% safe. No data collected. No internet required to run.
-        Everything happens locally on your laptop.<br /><br />
-        Just follow these two steps:
-      </p>
-
-      <!-- SmartScreen dialog mockup — two states -->
-      <div style="display:flex; flex-direction:column; gap:16px; margin-bottom:20px;">
-
-        <!-- State 1: initial dialog, "More info" highlighted -->
-        <div style="border-radius:8px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.18); font-family:'Segoe UI',sans-serif; max-width:380px; margin:0 auto; width:100%;">
-          <!-- Title bar -->
-          <div style="background:#404040; padding:8px 14px; display:flex; align-items:center; justify-content:space-between;">
-            <span style="color:#fff; font-size:12px; font-weight:600; letter-spacing:0.01em;">Windows protected your PC</span>
-            <span style="color:#aaa; font-size:14px; line-height:1; cursor:default;">✕</span>
-          </div>
-          <!-- Body -->
-          <div style="background:#f8f8f8; padding:20px 18px 16px;">
-            <div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:16px;">
-              <div style="font-size:32px; line-height:1; flex-shrink:0;">🛡️</div>
-              <div>
-                <div style="font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:6px;">Microsoft Defender SmartScreen</div>
-                <div style="font-size:12px; color:#444; line-height:1.55;">prevented an unrecognized app from starting. Running this app might put your PC at risk.</div>
-              </div>
-            </div>
-            <div style="font-size:11.5px; color:#555; margin-bottom:16px; padding-left:2px;">
-              <span style="color:#888;">App:</span> PhoneBusted.exe<br/>
-              <span style="color:#888;">Publisher:</span> Unknown publisher
-            </div>
-            <!-- Highlighted "More info" with arrow -->
-            <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px; position:relative;">
-              <div style="background:#FFF3CD; border:2px solid #F59E0B; border-radius:6px; padding:4px 10px; display:inline-block;">
-                <span style="color:#1a6fca; font-size:12.5px; font-weight:700; text-decoration:underline; cursor:pointer;">More info</span>
-              </div>
-              <span style="font-size:20px; line-height:1;">←</span>
-              <span style="font-size:11px; font-weight:700; color:#E63946; background:#FFF0F0; border:1px solid #FCA5A5; border-radius:4px; padding:2px 8px;">Step 1: click here</span>
-            </div>
-            <div style="display:flex; justify-content:flex-end;">
-              <div style="background:#e0e0e0; border:1px solid #bbb; border-radius:4px; padding:6px 18px; font-size:12px; color:#888; font-weight:600;">Don't run</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- State 2: expanded dialog, "Run anyway" highlighted -->
-        <div style="border-radius:8px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.18); font-family:'Segoe UI',sans-serif; max-width:380px; margin:0 auto; width:100%;">
-          <!-- Title bar -->
-          <div style="background:#404040; padding:8px 14px; display:flex; align-items:center; justify-content:space-between;">
-            <span style="color:#fff; font-size:12px; font-weight:600; letter-spacing:0.01em;">Windows protected your PC</span>
-            <span style="color:#aaa; font-size:14px; line-height:1; cursor:default;">✕</span>
-          </div>
-          <!-- Body -->
-          <div style="background:#f8f8f8; padding:20px 18px 16px;">
-            <div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:16px;">
-              <div style="font-size:32px; line-height:1; flex-shrink:0;">🛡️</div>
-              <div>
-                <div style="font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:6px;">Microsoft Defender SmartScreen</div>
-                <div style="font-size:12px; color:#444; line-height:1.55;">prevented an unrecognized app from starting. Running this app might put your PC at risk.</div>
-              </div>
-            </div>
-            <div style="font-size:11.5px; color:#555; margin-bottom:16px; padding-left:2px;">
-              <span style="color:#888;">App:</span> PhoneBusted.exe<br/>
-              <span style="color:#888;">Publisher:</span> Unknown publisher
-            </div>
-            <div style="display:flex; justify-content:flex-end; align-items:center; gap:10px;">
-              <div style="background:#e0e0e0; border:1px solid #bbb; border-radius:4px; padding:6px 18px; font-size:12px; color:#888; font-weight:600;">Don't run</div>
-              <!-- Highlighted "Run anyway" with arrow -->
-              <div style="display:flex; align-items:center; gap:8px;">
-                <span style="font-size:11px; font-weight:700; color:#E63946; background:#FFF0F0; border:1px solid #FCA5A5; border-radius:4px; padding:2px 8px;">Step 2: click here</span>
-                <span style="font-size:20px; line-height:1;">→</span>
-                <div style="background:#FFF3CD; border:2px solid #F59E0B; border-radius:4px; padding:6px 18px;">
-                  <span style="font-size:12px; color:#1a1a1a; font-weight:700;">Run anyway</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="smartscreen-steps">
-        <div class="smartscreen-step">
-          <span class="ss-num">1</span>
-          Click <strong style="margin-left:4px;">"More info"</strong>
-        </div>
-        <div class="smartscreen-step">
-          <span class="ss-num">2</span>
-          Click <strong style="margin-left:4px;">"Run anyway"</strong>
-        </div>
-      </div>
-
-      <p class="smartscreen-after">
-        That's it. PhoneBusted will open normally every time after this.
-      </p>
-
-      <p class="smartscreen-footnote">
-        This warning disappears permanently once more users install PhoneBusted.
-        We're working on getting it fully verified. Thanks for being an early supporter 🙏
-      </p>
-    </div>
-
-    <!-- Mac security warning -->
-    <div class="mac-box">
-      <div class="mac-box-title">🍎 Mac users — one-time setup step</div>
-      <p class="mac-box-body">
-        macOS will say PhoneBusted is from an unidentified developer.
-        This is because we haven't paid Apple $99/year for a certificate yet.
-        The app is completely safe — no data leaves your laptop, ever.<br /><br />
-        To open it:
-      </p>
-      <div class="mac-box-steps">
-        <div class="mac-box-step">
-          <span class="mac-num">1</span>
-          Right-click PhoneBusted → <strong style="margin-left:4px;">Open</strong>
-        </div>
-        <div class="mac-box-step">
-          <span class="mac-num">2</span>
-          Click <strong style="margin-left:4px;">"Open"</strong> in the popup
-        </div>
-      </div>
-      <p class="mac-box-footnote">
-        You'll only need to do this once. After that it opens normally.
-      </p>
-    </div>
-
-    <!-- Steps -->
+    <!-- Steps — immediately after download buttons -->
     <div class="steps">
       <div class="step-row">
         <div class="step-num">1</div>
@@ -709,6 +579,156 @@
         <div class="step-text"><strong>Enter your key</strong> when the app asks. You're live. Put your phone down.</div>
       </div>
     </div>
+
+    <!-- Mac security warning -->
+    <div class="mac-box">
+      <div class="mac-box-title">🍎 Mac users — one-time setup step</div>
+      <p class="mac-box-body">
+        Our Apple code-signing certificate is on the way.
+        Until then, macOS will flag PhoneBusted as an unverified developer.
+        The app is completely safe — no data leaves your laptop, ever.
+      </p>
+      <div class="mac-box-steps">
+        <div class="mac-box-step">
+          <span class="mac-num">1</span>
+          Double-click PhoneBusted to open it
+        </div>
+        <div class="mac-box-step">
+          <span class="mac-num">2</span>
+          If blocked, go to <strong style="margin-left:4px;">System Settings → Privacy &amp; Security</strong>
+        </div>
+        <div class="mac-box-step">
+          <span class="mac-num">3</span>
+          Scroll down — you'll see <strong style="margin-left:4px;">"PhoneBusted was blocked"</strong>
+        </div>
+        <div class="mac-box-step">
+          <span class="mac-num">4</span>
+          Click <strong style="margin-left:4px;">"Open Anyway"</strong>
+        </div>
+        <div class="mac-box-step">
+          <span class="mac-num">5</span>
+          Click <strong style="margin-left:4px;">"Open"</strong> in the confirmation popup
+        </div>
+      </div>
+      <p class="mac-box-footnote">
+        You'll only need to do this once. After that it opens normally.
+      </p>
+    </div>
+    <p style="font-size:11.5px; color:#aaa; font-style:italic; text-align:center; margin-top:-18px; margin-bottom:28px;">
+      Screenshot for reference — your screen may look slightly different depending on your OS version.
+    </p>
+
+    <!-- Windows SmartScreen warning -->
+    <div class="smartscreen-box">
+      <div class="smartscreen-title">⚠️ Windows users — SmartScreen warning</div>
+      <p class="smartscreen-body">
+        Windows will show a security warning when you first open PhoneBusted.
+        This is completely normal for new apps. PhoneBusted is 100% safe —
+        no data collected, no internet required. Everything runs locally on your laptop.<br /><br />
+        Follow these two steps:
+      </p>
+
+      <!-- Dialog mockup: State 1 -->
+      <div style="margin-bottom:10px;">
+        <div style="font-size:11px; font-weight:700; color:#92400E; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">Step 1 — Click "More info"</div>
+        <div style="border-radius:6px; overflow:hidden; box-shadow:0 3px 16px rgba(0,0,0,0.22); font-family:'Segoe UI',Arial,sans-serif; max-width:380px; margin:0 auto; width:100%; border:1px solid #c0c0c0;">
+          <!-- Win titlebar -->
+          <div style="background:#f0f0f0; padding:6px 10px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #d0d0d0;">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" fill="#0078D4"/></svg>
+              <span style="font-size:11px; color:#1a1a1a; font-weight:400;">Windows protected your PC</span>
+            </div>
+            <span style="font-size:13px; color:#888; line-height:1; padding:0 4px;">✕</span>
+          </div>
+          <!-- Blue header band -->
+          <div style="background:#0067B8; padding:18px 18px 16px; display:flex; align-items:flex-start; gap:14px;">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; margin-top:2px;"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" fill="white" opacity="0.95"/></svg>
+            <div>
+              <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:5px;">Windows protected your PC</div>
+              <div style="font-size:11.5px; color:rgba(255,255,255,0.85); line-height:1.5;">Microsoft Defender SmartScreen prevented an unrecognized app from starting.</div>
+            </div>
+          </div>
+          <!-- White body -->
+          <div style="background:#fff; padding:16px 18px 14px;">
+            <div style="font-size:12px; color:#333; margin-bottom:14px; line-height:1.7;">
+              <span style="color:#666; display:inline-block; width:70px;">Publisher:</span> Unknown Publisher<br/>
+              <span style="color:#666; display:inline-block; width:70px;">App:</span> PhoneBusted.exe
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <!-- More info highlighted -->
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="border:2px solid #E63946; border-radius:5px; padding:5px 12px; box-shadow:0 0 0 3px rgba(230,57,70,0.15);">
+                  <span style="color:#0067B8; font-size:12px; font-weight:700; text-decoration:underline;">More info</span>
+                </div>
+                <span style="font-size:18px; color:#E63946; font-weight:900; line-height:1;">↑</span>
+                <span style="font-size:10.5px; font-weight:700; color:#E63946;">click here</span>
+              </div>
+              <div style="background:#f0f0f0; border:1px solid #adadad; border-radius:3px; padding:5px 14px; font-size:12px; color:#555;">Don't run</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrow between states -->
+      <div style="text-align:center; font-size:13px; color:#92400E; font-weight:600; margin:14px 0 10px; display:flex; align-items:center; justify-content:center; gap:8px;">
+        <span style="width:40px; height:1px; background:#F59E0B; display:inline-block;"></span>
+        After clicking More info:
+        <span style="width:40px; height:1px; background:#F59E0B; display:inline-block;"></span>
+      </div>
+
+      <!-- Dialog mockup: State 2 -->
+      <div style="margin-bottom:20px;">
+        <div style="font-size:11px; font-weight:700; color:#92400E; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">Step 2 — Click "Run anyway"</div>
+        <div style="border-radius:6px; overflow:hidden; box-shadow:0 3px 16px rgba(0,0,0,0.22); font-family:'Segoe UI',Arial,sans-serif; max-width:380px; margin:0 auto; width:100%; border:1px solid #c0c0c0;">
+          <!-- Win titlebar -->
+          <div style="background:#f0f0f0; padding:6px 10px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #d0d0d0;">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" fill="#0078D4"/></svg>
+              <span style="font-size:11px; color:#1a1a1a; font-weight:400;">Windows protected your PC</span>
+            </div>
+            <span style="font-size:13px; color:#888; line-height:1; padding:0 4px;">✕</span>
+          </div>
+          <!-- Blue header band -->
+          <div style="background:#0067B8; padding:18px 18px 16px; display:flex; align-items:flex-start; gap:14px;">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; margin-top:2px;"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" fill="white" opacity="0.95"/></svg>
+            <div>
+              <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:5px;">Windows protected your PC</div>
+              <div style="font-size:11.5px; color:rgba(255,255,255,0.85); line-height:1.5;">Microsoft Defender SmartScreen prevented an unrecognized app from starting.</div>
+            </div>
+          </div>
+          <!-- White body -->
+          <div style="background:#fff; padding:16px 18px 14px;">
+            <div style="font-size:12px; color:#333; margin-bottom:14px; line-height:1.7;">
+              <span style="color:#666; display:inline-block; width:70px;">App:</span> PhoneBusted.exe<br/>
+              <span style="color:#666; display:inline-block; width:70px;">Publisher:</span> Unknown Publisher
+            </div>
+            <div style="display:flex; align-items:center; justify-content:flex-end; gap:10px;">
+              <div style="background:#f0f0f0; border:1px solid #adadad; border-radius:3px; padding:5px 14px; font-size:12px; color:#555;">Don't run</div>
+              <!-- Run anyway highlighted -->
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:10.5px; font-weight:700; color:#E63946;">click here</span>
+                <span style="font-size:18px; color:#E63946; font-weight:900; line-height:1;">↓</span>
+                <div style="border:2px solid #E63946; border-radius:3px; padding:5px 14px; box-shadow:0 0 0 3px rgba(230,57,70,0.15); background:#fff;">
+                  <span style="font-size:12px; color:#1a1a1a; font-weight:700;">Run anyway</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="smartscreen-after">
+        That's it. PhoneBusted will open normally every time after this.
+      </p>
+
+      <p class="smartscreen-footnote">
+        This warning disappears permanently once more users install PhoneBusted.
+        We're working on getting it fully verified. Thanks for being an early supporter 🙏
+      </p>
+    </div>
+    <p style="font-size:11.5px; color:#aaa; font-style:italic; text-align:center; margin-top:-18px; margin-bottom:28px;">
+      Screenshot for reference — your screen may look slightly different depending on your OS version.
+    </p>
 
     <!-- Spam note -->
     <p class="spam-note">
