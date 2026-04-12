@@ -1,6 +1,0 @@
-ultralytics
-opencv-python
-pystray
-Pillow
-requests
-pyttsx3
