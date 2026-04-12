@@ -576,11 +576,78 @@
         Just follow these two steps:
       </p>
 
-      <img
-        src="assets/Click_more_infor_and_Run_anyway.png.png"
-        alt='Windows SmartScreen: click "More info" then "Run anyway"'
-        class="smartscreen-img"
-      />
+      <!-- SmartScreen dialog mockup — two states -->
+      <div style="display:flex; flex-direction:column; gap:16px; margin-bottom:20px;">
+
+        <!-- State 1: initial dialog, "More info" highlighted -->
+        <div style="border-radius:8px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.18); font-family:'Segoe UI',sans-serif; max-width:380px; margin:0 auto; width:100%;">
+          <!-- Title bar -->
+          <div style="background:#404040; padding:8px 14px; display:flex; align-items:center; justify-content:space-between;">
+            <span style="color:#fff; font-size:12px; font-weight:600; letter-spacing:0.01em;">Windows protected your PC</span>
+            <span style="color:#aaa; font-size:14px; line-height:1; cursor:default;">✕</span>
+          </div>
+          <!-- Body -->
+          <div style="background:#f8f8f8; padding:20px 18px 16px;">
+            <div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:16px;">
+              <div style="font-size:32px; line-height:1; flex-shrink:0;">🛡️</div>
+              <div>
+                <div style="font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:6px;">Microsoft Defender SmartScreen</div>
+                <div style="font-size:12px; color:#444; line-height:1.55;">prevented an unrecognized app from starting. Running this app might put your PC at risk.</div>
+              </div>
+            </div>
+            <div style="font-size:11.5px; color:#555; margin-bottom:16px; padding-left:2px;">
+              <span style="color:#888;">App:</span> PhoneBusted.exe<br/>
+              <span style="color:#888;">Publisher:</span> Unknown publisher
+            </div>
+            <!-- Highlighted "More info" with arrow -->
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px; position:relative;">
+              <div style="background:#FFF3CD; border:2px solid #F59E0B; border-radius:6px; padding:4px 10px; display:inline-block;">
+                <span style="color:#1a6fca; font-size:12.5px; font-weight:700; text-decoration:underline; cursor:pointer;">More info</span>
+              </div>
+              <span style="font-size:20px; line-height:1;">←</span>
+              <span style="font-size:11px; font-weight:700; color:#E63946; background:#FFF0F0; border:1px solid #FCA5A5; border-radius:4px; padding:2px 8px;">Step 1: click here</span>
+            </div>
+            <div style="display:flex; justify-content:flex-end;">
+              <div style="background:#e0e0e0; border:1px solid #bbb; border-radius:4px; padding:6px 18px; font-size:12px; color:#888; font-weight:600;">Don't run</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- State 2: expanded dialog, "Run anyway" highlighted -->
+        <div style="border-radius:8px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.18); font-family:'Segoe UI',sans-serif; max-width:380px; margin:0 auto; width:100%;">
+          <!-- Title bar -->
+          <div style="background:#404040; padding:8px 14px; display:flex; align-items:center; justify-content:space-between;">
+            <span style="color:#fff; font-size:12px; font-weight:600; letter-spacing:0.01em;">Windows protected your PC</span>
+            <span style="color:#aaa; font-size:14px; line-height:1; cursor:default;">✕</span>
+          </div>
+          <!-- Body -->
+          <div style="background:#f8f8f8; padding:20px 18px 16px;">
+            <div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:16px;">
+              <div style="font-size:32px; line-height:1; flex-shrink:0;">🛡️</div>
+              <div>
+                <div style="font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:6px;">Microsoft Defender SmartScreen</div>
+                <div style="font-size:12px; color:#444; line-height:1.55;">prevented an unrecognized app from starting. Running this app might put your PC at risk.</div>
+              </div>
+            </div>
+            <div style="font-size:11.5px; color:#555; margin-bottom:16px; padding-left:2px;">
+              <span style="color:#888;">App:</span> PhoneBusted.exe<br/>
+              <span style="color:#888;">Publisher:</span> Unknown publisher
+            </div>
+            <div style="display:flex; justify-content:flex-end; align-items:center; gap:10px;">
+              <div style="background:#e0e0e0; border:1px solid #bbb; border-radius:4px; padding:6px 18px; font-size:12px; color:#888; font-weight:600;">Don't run</div>
+              <!-- Highlighted "Run anyway" with arrow -->
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:11px; font-weight:700; color:#E63946; background:#FFF0F0; border:1px solid #FCA5A5; border-radius:4px; padding:2px 8px;">Step 2: click here</span>
+                <span style="font-size:20px; line-height:1;">→</span>
+                <div style="background:#FFF3CD; border:2px solid #F59E0B; border-radius:4px; padding:6px 18px;">
+                  <span style="font-size:12px; color:#1a1a1a; font-weight:700;">Run anyway</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
       <div class="smartscreen-steps">
         <div class="smartscreen-step">
