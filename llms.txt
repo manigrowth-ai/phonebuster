@@ -1,0 +1,36 @@
+# PhoneBusted
+
+> A desktop app for Mac and Windows that uses your webcam to detect
+> when you pick up your phone while working - and immediately shouts at you.
+> One-time $9 payment. Lifetime license. No subscription. Runs 100% offline.
+
+## What It Does
+- Detects phone via webcam using YOLO11n AI model (runs locally)
+- Fires a custom voice alert the moment you pick up your phone
+- Runs silently in system tray - always watching, never intrusive
+- Live view mode so you can see exactly what it sees
+- 4 custom voice alert styles to choose from
+- Fully customizable sensitivity and alerts
+
+## Who It's For
+- Builders, founders, developers, designers distracted by their phone
+- People with ADHD who need hard accountability
+- Remote workers and solopreneurs
+- Anyone who says "just one minute" and loses an hour
+
+## Privacy
+- No video recorded, stored, or sent anywhere - ever
+- Webcam feed processed locally on your device only
+- Works 100% offline after first setup
+- License validated once and cached locally
+
+## Pricing
+- $9 one-time payment - lifetime license
+- Works on Mac (macOS 10.15+) and Windows
+- 60-day money-back guarantee
+
+## Common Questions
+- Does it spy on me? No. Everything is local. No data leaves your laptop.
+- Will it slow my laptop? No. Under 5% CPU on most modern laptops.
+- Does it work offline? Yes. 100% offline after first setup.
+- Does it work with external webcams? Yes, any webcam your computer recognizes.
